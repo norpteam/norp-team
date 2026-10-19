@@ -1,189 +1,195 @@
+
 <!doctype html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#07111f">
-  <meta name="description" content="نورپ تیم؛ گروهی برای ساخت ایده‌های خلاقانه در برنامه‌نویسی، وب و ابزارهای دیجیتال.">
-  <title>نورپ تیم | NRP TEAM</title>
-  <style>
-    :root{--bg:#07111f;--panel:#0d1b2c;--panel2:#102238;--text:#eef6ff;--muted:#a8bbd1;--green:#63ffb0;--cyan:#5de3ff;--line:#1c3850}
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:radial-gradient(ellipse at 80% 0%,#102a3d 0,transparent 40%),var(--bg);color:var(--text);font-family:Tahoma,"Segoe UI",Arial,sans-serif;line-height:1.8}
-    a{color:inherit;text-decoration:none}
-    .wrap{width:min(1100px,92%);margin:auto}
-    header{position:sticky;top:0;z-index:10;background:#07111fe8;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-    .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.3px}
-    .logo{display:grid;place-items:center;width:42px;height:42px;border:1px solid #63ffb077;border-radius:13px;color:var(--green);font-weight:1000;box-shadow:0 0 24px #63ffb018}
-    .brand small{display:block;color:var(--muted);font-size:11px;letter-spacing:2px;direction:ltr;text-align:right}
-    nav{display:flex;gap:22px;flex-wrap:wrap;color:var(--muted);font-size:14px}
-    nav a:hover{color:var(--green)}
-    .hero{padding:88px 0 70px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
-    .tag{display:inline-flex;align-items:center;gap:8px;border:1px solid #63ffb044;background:#63ffb00d;color:var(--green);border-radius:999px;padding:6px 12px;font-size:12px}
-    .dot{width:7px;height:7px;background:var(--green);border-radius:50%;box-shadow:0 0 12px var(--green)}
-    h1{font-size:clamp(38px,6vw,68px);line-height:1.25;margin:18px 0}
-    .gradient{background:linear-gradient(100deg,var(--green),var(--cyan));color:transparent;background-clip:text;-webkit-background-clip:text}
-    .lead{max-width:600px;color:var(--muted);font-size:17px}
-    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:12px;border:1px solid var(--line);font-weight:700;transition:.2s;cursor:pointer;font:inherit;font-size:14px}
-    .btn.primary{background:var(--green);color:#04120c;border-color:var(--green)}
-    .btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px #0003}
-    .btn.secondary{background:#ffffff05}
-    .terminal{background:#081522;border:1px solid #25435a;border-radius:18px;overflow:hidden;box-shadow:0 25px 70px #0005;transform:rotate(-1deg)}
-    .termbar{display:flex;align-items:center;gap:7px;padding:13px 16px;border-bottom:1px solid #1b3348;color:#92a8bd;font-size:12px;direction:ltr}
-    .ball{width:9px;height:9px;border-radius:50%;background:#ff657a}.ball:nth-child(2){background:#ffd166}.ball:nth-child(3){background:#63ffb0}
-    .termcontent{padding:24px 20px;font-family:Consolas,monospace;direction:ltr;text-align:left;font-size:13px;min-height:245px;color:#b6c9dc}
-    .termcontent p{margin:0 0 12px}.prompt{color:var(--green)}.blue{color:var(--cyan)}.cursor{display:inline-block;width:8px;height:16px;background:var(--green);vertical-align:middle;animation:blink 1s steps(2) infinite}
-    @keyframes blink{50%{opacity:0}}
-    section{padding:62px 0}
-    .section-head{margin-bottom:28px}
-    .eyebrow{color:var(--green);font-size:12px;font-weight:bold;letter-spacing:1.5px}
-    h2{font-size:clamp(27px,4vw,38px);margin:6px 0 8px}
-    .sub{color:var(--muted);margin:0;max-width:680px}
-    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .card{background:linear-gradient(145deg,#102238,#0a1726);border:1px solid var(--line);border-radius:18px;padding:22px;transition:.2s}
-    .card:hover{transform:translateY(-4px);border-color:#63ffb077}
-    .card-icon{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;background:#63ffb012;color:var(--green);font-size:22px;margin-bottom:15px}
-    .card h3{margin:0 0 7px;font-size:19px}.card p{color:var(--muted);font-size:14px;margin:0}
-    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
-    .about-box{padding:26px;border:1px solid var(--line);border-radius:18px;background:#ffffff03}
-    .checks{list-style:none;padding:0;margin:16px 0 0}.checks li{margin:9px 0;color:var(--muted)}.checks li:before{content:"✓";color:var(--green);font-weight:bold;margin-left:10px}
-    .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .stat{padding:20px;border-radius:16px;background:var(--panel);border:1px solid var(--line)}
-    .stat strong{display:block;font-size:28px;color:var(--green)}.stat span{font-size:13px;color:var(--muted)}
-    .project{display:flex;flex-direction:column;gap:12px}
-    .project .status{font-size:11px;color:var(--cyan);border:1px solid #5de3ff44;border-radius:999px;padding:3px 9px;width:max-content}
-    .project .btn{align-self:flex-start;margin-top:4px}
-    .contact{background:linear-gradient(120deg,#102b34,#0d1b2c);border:1px solid #2b514f;border-radius:22px;padding:32px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-    .contact p{color:var(--muted);margin:0}
-    footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:12px}
-    .footer-inner{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-    .modal-backdrop{position:fixed;inset:0;z-index:30;background:#020811c9;display:none;align-items:center;justify-content:center;padding:20px}
-    .modal-backdrop.open{display:flex}
-    .modal{width:min(520px,100%);background:#0d1b2c;border:1px solid #31506a;border-radius:20px;padding:25px;box-shadow:0 25px 90px #0008}
-    .modal h3{margin-top:0}.modal p{color:var(--muted)}.close{float:left;background:#ffffff0b;border:1px solid var(--line);color:var(--text);border-radius:9px;padding:5px 10px;cursor:pointer}
-    @media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:56px}.terminal{transform:none}.cards{grid-template-columns:1fr}.about-grid{grid-template-columns:1fr}.nav{padding:12px 0;align-items:flex-start;flex-direction:column;gap:8px}nav{gap:14px}.contact{align-items:flex-start;flex-direction:column}.termcontent{min-height:210px}}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07100c">
+<meta name="description" content="وب‌سایت رسمی تیم برنامه‌نویسی NØRP؛ اعضا، پروژه‌ها و راه‌های ارتباطی.">
+<title>NØRP Team | تیم برنامه‌نویسی</title>
+<style>
+:root{--bg:#050907;--panel:#0b1510;--panel2:#0e1d15;--green:#58ff9a;--green2:#18c96a;--text:#edf8f0;--muted:#9bb2a3;--line:rgba(88,255,154,.19);--shadow:0 20px 60px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at 80% 0%,rgba(24,201,106,.13),transparent 35%),radial-gradient(ellipse at 0% 35%,rgba(88,255,154,.06),transparent 32%),var(--bg);color:var(--text);font-family:Tahoma,"Segoe UI",Arial,sans-serif;line-height:1.8}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1120px,92%);margin:auto}
+.topbar{position:sticky;top:0;z-index:10;background:rgba(5,9,7,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:72px}
+.brand{font-weight:900;letter-spacing:1px;font-size:1.45rem;color:var(--green)}
+.brand span{color:#fff}
+.links{display:flex;align-items:center;gap:22px;color:var(--muted);font-size:.92rem}
+.links a:hover{color:var(--green)}
+button,.btn{font:inherit;cursor:pointer;border:1px solid var(--line);border-radius:12px;padding:9px 14px;color:var(--green);background:#0a1710;transition:.2s}
+button:hover,.btn:hover{transform:translateY(-2px);border-color:var(--green);box-shadow:0 0 22px rgba(88,255,154,.12)}
+.hero{padding:92px 0 72px;display:grid;grid-template-columns:1.15fr .85fr;gap:42px;align-items:center;min-height:570px}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);background:rgba(88,255,154,.06);border-radius:999px;padding:5px 13px;color:var(--green);font-size:.84rem}
+.dot{width:8px;height:8px;background:var(--green);border-radius:50%;box-shadow:0 0 12px var(--green)}
+h1{font-size:clamp(2.5rem,6vw,4.8rem);line-height:1.17;margin:20px 0}
+h1 em{font-style:normal;color:var(--green);text-shadow:0 0 25px rgba(88,255,154,.25)}
+.lead{color:var(--muted);font-size:1.06rem;max-width:600px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn.primary{background:var(--green);color:#061109;font-weight:800;border-color:var(--green)}
+.terminal{background:linear-gradient(145deg,rgba(16,35,24,.96),rgba(7,14,10,.96));border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow);transform:rotate(-1deg)}
+.terminal-head{padding:12px 16px;border-bottom:1px solid var(--line);display:flex;gap:7px;align-items:center;color:var(--muted);font-size:.8rem}
+.orb{width:9px;height:9px;border-radius:50%;background:var(--green2)}
+.terminal-body{padding:25px;font-family:Consolas,monospace;direction:ltr;text-align:left;color:#b9d8c4;font-size:.92rem}
+.terminal-body p{margin:0 0 12px}
+.terminal-body .g{color:var(--green)}
+.terminal-body .dim{color:#668775}
+.cursor{display:inline-block;width:8px;height:17px;background:var(--green);vertical-align:middle;animation:blink 1s steps(2,start) infinite}
+@keyframes blink{to{visibility:hidden}}
+section{padding:60px 0}
+.section-head{margin-bottom:28px}
+.kicker{color:var(--green);font-size:.82rem;font-weight:bold;letter-spacing:1px}
+.section-head h2{font-size:clamp(1.8rem,4vw,2.5rem);margin:5px 0}
+.section-head p{color:var(--muted);margin:0}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:linear-gradient(145deg,rgba(13,28,19,.9),rgba(7,14,10,.95));border:1px solid var(--line);border-radius:18px;padding:23px;min-width:0;transition:.22s}
+.card:hover{transform:translateY(-4px);border-color:rgba(88,255,154,.5);box-shadow:0 16px 35px rgba(0,0,0,.22)}
+.iconbox{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;color:var(--green);background:rgba(88,255,154,.08);border:1px solid var(--line);font-size:1.3rem}
+.card h3{margin:14px 0 5px;font-size:1.12rem}
+.card p{color:var(--muted);font-size:.92rem;margin:0}
+.handle{display:inline-block;margin-top:14px;color:var(--green);font-size:.85rem;direction:ltr}
+.tag{display:inline-block;margin:12px 5px 0 0;padding:3px 9px;border-radius:999px;background:rgba(88,255,154,.07);border:1px solid var(--line);color:#b8e9c9;font-size:.75rem}
+.band{border:1px solid var(--line);border-radius:22px;background:linear-gradient(110deg,rgba(88,255,154,.09),rgba(10,20,14,.5));padding:28px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.band h2{margin:0 0 5px}
+.band p{margin:0;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:.85rem}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.foot strong{color:var(--green)}
+.english{font-family:"Segoe UI",Arial,sans-serif}
+.english .terminal-body{text-align:left;direction:ltr}
+.english .tag{margin-left:0;margin-right:5px}
+@media(max-width:800px){.links{gap:12px}.hero{grid-template-columns:1fr;padding-top:60px;min-height:auto}.terminal{transform:none}.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.nav{min-height:64px;flex-wrap:wrap;padding:10px 0}.links{order:3;width:100%;justify-content:space-between;font-size:.8rem;padding-bottom:5px}.hero{padding:48px 0}.grid{grid-template-columns:1fr}.band{align-items:flex-start;flex-direction:column}}
+</style>
 </head>
 <body>
-<header>
-  <div class="wrap nav">
-    <a class="brand" href="#home" aria-label="نورپ تیم">
-      <span class="logo">NRP</span>
-      <span>نورپ تیم <small>BUILD • LEARN • CREATE</small></span>
-    </a>
-    <nav aria-label="منوی اصلی">
-      <a href="#about">درباره ما</a><a href="#services">حوزه‌ها</a><a href="#projects">پروژه‌ها</a><a href="#contact">ارتباط</a>
-    </nav>
-  </div>
-</header>
-<main id="home">
-  <div class="wrap hero">
-    <div>
-      <span class="tag"><span class="dot"></span> تیم خلاق برنامه‌نویسی</span>
-      <h1>ایده‌ها رو به<br><span class="gradient">واقعیت تبدیل می‌کنیم.</span></h1>
-      <p class="lead">نورپ تیم؛ فضایی برای یادگیری، ساخت ابزارهای دیجیتال و تبدیل ایده‌های تازه به پروژه‌های کاربردی.</p>
-      <div class="actions">
-        <a class="btn primary" href="#projects">دیدن پروژه‌ها <span>←</span></a>
-        <a class="btn secondary" href="#about">با تیم آشنا شو</a>
-      </div>
-    </div>
-    <div class="terminal" aria-label="نمایشی از کدنویسی">
-      <div class="termbar"><span class="ball"></span><span class="ball"></span><span class="ball"></span><span style="margin-left:auto">nrp_team.py</span></div>
-      <div class="termcontent" id="terminal">
-        <p><span class="prompt"># NRP TEAM</span></p>
-        <p><span class="blue">class</span> Team:</p>
-        <p>&nbsp;&nbsp;name = <span class="prompt">"Noorup Team"</span></p>
-        <p>&nbsp;&nbsp;mission = <span class="prompt">"Build useful things"</span></p>
-        <p>&nbsp;&nbsp;status = <span class="prompt">"creating..."</span></p>
-        <p><span class="blue">print</span>(<span class="prompt">"Hello, world!"</span>)</p>
-        <p><span class="prompt">&gt;&gt;&gt;</span> <span id="typed">Welcome to NRP Team</span><span class="cursor"></span></p>
-      </div>
-    </div>
-  </div>
-
-  <section id="about">
-    <div class="wrap">
-      <div class="section-head"><div class="eyebrow">WHO WE ARE</div><h2>تکنولوژی با ایده شروع می‌شه.</h2><p class="sub">ما روی یادگیری مداوم، همکاری تیمی و ساخت محصولاتی تمرکز می‌کنیم که استفاده از تکنولوژی رو ساده‌تر کنن.</p></div>
-      <div class="about-grid">
-        <div class="about-box">
-          <h3>ماموریت ما</h3>
-          <p class="sub">ساختن پروژه‌های دیجیتال، تمرین مهارت‌های برنامه‌نویسی و تبدیل ایده‌های خلاقانه به تجربه‌های واقعی.</p>
-          <ul class="checks"><li>یادگیری و پیشرفت مستمر</li><li>ساخت پروژه‌های واقعی</li><li>همکاری و حل مسئله</li></ul>
-        </div>
-        <div class="stat-grid">
-          <div class="stat"><strong>01</strong><span>شروع با یک ایده</span></div>
-          <div class="stat"><strong>02</strong><span>ساخت و آزمایش</span></div>
-          <div class="stat"><strong>03</strong><span>بهبود و توسعه</span></div>
-          <div class="stat"><strong>∞</strong><span>ایده‌های تازه</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="services">
-    <div class="wrap">
-      <div class="section-head"><div class="eyebrow">WHAT WE DO</div><h2>حوزه‌های فعالیت</h2><p class="sub">از وب‌سایت تا ابزارهای هوشمند؛ مسیر ساختن رو با یادگیری شروع می‌کنیم.</p></div>
-      <div class="cards">
-        <article class="card"><div class="card-icon">⌘</div><h3>برنامه‌نویسی</h3><p>یادگیری اصولی کدنویسی و ساخت ابزارهای کاربردی با زبان‌های برنامه‌نویسی.</p></article>
-        <article class="card"><div class="card-icon">⌘</div><h3>توسعه وب</h3><p>طراحی وب‌سایت‌های سریع، واکنش‌گرا و مناسب موبایل و دسکتاپ.</p></article>
-        <article class="card"><div class="card-icon">⚙</div><h3>بات و ابزار دیجیتال</h3><p>ساخت بات‌ها و ابزارهایی برای ساده‌تر کردن کارهای روزمره.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects">
-    <div class="wrap">
-      <div class="section-head"><div class="eyebrow">SELECTED WORK</div><h2>پروژه‌های ما</h2><p class="sub">این بخش آماده است تا پروژه‌های واقعی تیم و لینک‌های آن‌ها را معرفی کنیم.</p></div>
-      <div class="cards">
-        <article class="card project"><span class="status">قابل تکمیل</span><div class="card-icon">⌘</div><h3>وب‌سایت نورپ تیم</h3><p>خانه‌ی دیجیتال تیم برای معرفی هدف‌ها، اعضا و پروژه‌ها.</p><button class="btn secondary" data-modal="site">جزئیات پروژه</button></article>
-        <article class="card project"><span class="status">قابل تکمیل</span><div class="card-icon">◈</div><h3>بات بله</h3><p>معرفی بات و امکانات آن؛ لینک واقعی بعداً اضافه می‌شود.</p><button class="btn secondary" data-modal="bot">جزئیات پروژه</button></article>
-        <article class="card project"><span class="status">در حال توسعه</span><div class="card-icon">⌁</div><h3>ابزارهای تیم</h3><p>ایده‌ها و ابزارهای کوچکی که کارهای دیجیتال را ساده‌تر می‌کنند.</p><button class="btn secondary" data-modal="tools">جزئیات پروژه</button></article>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="wrap">
-      <div class="contact">
-        <div><div class="eyebrow">LET'S CONNECT</div><h2>ایده‌ای داری؟</h2><p>برای همکاری و پیشنهاد پروژه، راه ارتباطی تیم رو اضافه کن.</p></div>
-        <button class="btn primary" id="contactBtn">راه‌های ارتباطی <span>↗</span></button>
-      </div>
-    </div>
-  </section>
-</main>
-<footer><div class="wrap footer-inner"><span>© <span id="year"></span> نورپ تیم — NRP TEAM</span><span>ساخته‌شده با ایده، کد و کمی قهوه ☕</span></div></footer>
-
-<div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-  <div class="modal"><button class="close" id="closeModal" aria-label="بستن">بستن ✕</button><h3 id="modalTitle">جزئیات</h3><p id="modalText"></p><button class="btn secondary" id="modalDone">باشه</button></div>
+<header class="topbar">
+<div class="wrap nav">
+<a class="brand" href="#home">NØRP<span>_TEAM</span></a>
+<nav class="links">
+<a href="#about" data-fa="درباره ما" data-en="About">درباره ما</a>
+<a href="#team" data-fa="اعضای تیم" data-en="Team">اعضای تیم</a>
+<a href="#projects" data-fa="پروژه‌ها" data-en="Projects">پروژه‌ها</a>
+<a href="#contact" data-fa="ارتباط" data-en="Contact">ارتباط</a>
+</nav>
+<button id="langBtn" type="button" aria-label="Change language">EN / فا</button>
 </div>
+</header>
+
+<main>
+<section class="hero wrap" id="home">
+<div>
+<span class="eyebrow"><span class="dot"></span><span data-fa="تیم توسعه و برنامه‌نویسی" data-en="Development & Programming Team">تیم توسعه و برنامه‌نویسی</span></span>
+<h1 data-fa="ایده‌ها رو به <em>واقعیت</em> تبدیل می‌کنیم." data-en="Turning ideas into <em>reality</em>.">ایده‌ها رو به <em>واقعیت</em> تبدیل می‌کنیم.</h1>
+<p class="lead" data-fa="ما در NØRP روی برنامه‌نویسی، ساخت ابزارهای کاربردی و توسعه پروژه‌های دیجیتال کار می‌کنیم؛ قدم‌به‌قدم، با یادگیری و همکاری تیمی." data-en="At NØRP, we work on programming, useful tools, and digital projects—building step by step through learning and teamwork.">ما در NØRP روی برنامه‌نویسی، ساخت ابزارهای کاربردی و توسعه پروژه‌های دیجیتال کار می‌کنیم؛ قدم‌به‌قدم، با یادگیری و همکاری تیمی.</p>
+<div class="actions">
+<a class="btn primary" href="#projects" data-fa="دیدن پروژه‌ها ↓" data-en="Explore projects ↓">دیدن پروژه‌ها ↓</a>
+<a class="btn" href="#team" data-fa="آشنایی با تیم" data-en="Meet the team">آشنایی با تیم</a>
+</div>
+</div>
+<div class="terminal" aria-label="Terminal decoration">
+<div class="terminal-head"><span class="orb"></span><span class="orb"></span><span class="orb"></span><span style="margin-inline-start:auto">norp — terminal</span></div>
+<div class="terminal-body">
+<p class="dim">// welcome to NØRP</p>
+<p><span class="g">team</span> = "NØRP"</p>
+<p><span class="g">mission</span> = "Build. Learn. Improve."</p>
+<p><span class="g">status</span> = "creating new things"</p>
+<p class="dim">&gt; Ready to build something?</p>
+<p><span class="g">$</span> <span class="cursor"></span></p>
+</div>
+</div>
+</section>
+
+<section id="about">
+<div class="wrap">
+<div class="section-head">
+<span class="kicker" data-fa="01 / درباره تیم" data-en="01 / ABOUT">01 / درباره تیم</span>
+<h2 data-fa="فناوری با همکاری ساخته می‌شه" data-en="Technology is built together">فناوری با همکاری ساخته می‌شه</h2>
+<p data-fa="NØRP فضایی برای ساخت پروژه، به‌اشتراک‌گذاری مهارت‌ها و رشد در مسیر برنامه‌نویسیه." data-en="NØRP is a space to build projects, share skills, and grow as developers.">NØRP فضایی برای ساخت پروژه، به‌اشتراک‌گذاری مهارت‌ها و رشد در مسیر برنامه‌نویسیه.</p>
+</div>
+<div class="grid">
+<article class="card"><div class="iconbox">⌘</div><h3 data-fa="توسعه نرم‌افزار" data-en="Software development">توسعه نرم‌افزار</h3><p data-fa="طراحی و توسعه ابزارها و برنامه‌های کاربردی با تمرکز روی نیاز واقعی کاربران." data-en="Designing and building useful tools around real user needs.">طراحی و توسعه ابزارها و برنامه‌های کاربردی با تمرکز روی نیاز واقعی کاربران.</p></article>
+<article class="card"><div class="iconbox">⌁</div><h3 data-fa="همکاری تیمی" data-en="Teamwork">همکاری تیمی</h3><p data-fa="تقسیم مسئولیت‌ها، یادگیری از یکدیگر و پیش‌بردن ایده‌ها به‌صورت گروهی." data-en="Sharing responsibilities, learning from each other, and moving ideas forward together.">تقسیم مسئولیت‌ها، یادگیری از یکدیگر و پیش‌بردن ایده‌ها به‌صورت گروهی.</p></article>
+<article class="card"><div class="iconbox">✳</div><h3 data-fa="یادگیری مداوم" data-en="Continuous learning">یادگیری مداوم</h3><p data-fa="هر پروژه فرصتی برای بهترشدن، آزمایش ایده‌ها و کسب تجربه‌های تازه است." data-en="Every project is a chance to improve, experiment, and gain experience.">هر پروژه فرصتی برای بهترشدن، آزمایش ایده‌ها و کسب تجربه‌های تازه است.</p></article>
+</div>
+</div>
+</section>
+
+<section id="team">
+<div class="wrap">
+<div class="section-head">
+<span class="kicker" data-fa="02 / اعضا" data-en="02 / TEAM">02 / اعضا</span>
+<h2 data-fa="آدم‌های پشت پروژه‌ها" data-en="The people behind the projects">آدم‌های پشت پروژه‌ها</h2>
+<p data-fa="اعضای تیم و حوزهٔ فعالیت‌شان" data-en="Team members and their areas of work">اعضای تیم و حوزهٔ فعالیت‌شان</p>
+</div>
+<div class="grid">
+<article class="card"><div class="iconbox">✦</div><h3>ایلیا پرون</h3><p data-fa="مالک و بنیان‌گذار تیم" data-en="Team owner & founder">مالک و بنیان‌گذار تیم</p><span class="handle">@KaroNORP</span></article>
+<article class="card"><div class="iconbox">⚡</div><h3>عرشیا فایتر</h3><p data-fa="تأسیس‌کنندهٔ وب‌سایت NØRP" data-en="Founder of the NØRP website">تأسیس‌کنندهٔ وب‌سایت NØRP</p><span class="handle">@hsdjuhuhs</span></article>
+<article class="card"><div class="iconbox">⌘</div><h3>داریوش براتی</h3><p data-fa="توسعه‌دهنده API؛ بک‌اند، فرانت‌اند و طراحی API" data-en="API developer; backend, frontend, and API design">توسعه‌دهنده API؛ بک‌اند، فرانت‌اند و طراحی API</p><span class="handle">@xrDarushNs</span></article>
+<article class="card"><div class="iconbox">◈</div><h3>مرتضی وحیدی</h3><p data-fa="پشتیبانی تیم" data-en="Team support">پشتیبانی تیم</p><span class="handle">@norp_support</span></article>
+<article class="card"><div class="iconbox">{ }</div><h3>ماهان</h3><p data-fa="برنامه‌نویس پایتون و مهندس هوش مصنوعی" data-en="Python developer and AI engineer">برنامه‌نویس پایتون و مهندس هوش مصنوعی</p><span class="handle">@mahanliooooooooo</span></article>
+<article class="card"><div class="iconbox">✧</div><h3>محمدحسین محمد</h3><p data-fa="عضو تیم NØRP" data-en="NØRP team member">عضو تیم NØRP</p><span class="handle">@MAMAL_WIN</span></article>
+<article class="card"><div class="iconbox">+</div><h3 data-fa="جای تو هم هست" data-en="There's room for you">جای تو هم هست</h3><p data-fa="با یادگیری، همکاری و ایده‌های تازه می‌شه بخشی از مسیر تیم شد." data-en="Learning, collaboration, and fresh ideas can help you join the journey.">با یادگیری، همکاری و ایده‌های تازه می‌شه بخشی از مسیر تیم شد.</p></article>
+</div>
+</div>
+</section>
+
+<section id="projects">
+<div class="wrap">
+<div class="section-head">
+<span class="kicker" data-fa="03 / پروژه‌ها" data-en="03 / PROJECTS">03 / پروژه‌ها</span>
+<h2 data-fa="چیزهایی که می‌سازیم" data-en="What we're building">چیزهایی که می‌سازیم</h2>
+<p data-fa="معرفی کلی پروژه‌ها؛ جزئیات و لینک‌ها را می‌توانید بعداً تکمیل کنید." data-en="A quick overview of our projects. Details and links can be added later.">معرفی کلی پروژه‌ها؛ جزئیات و لینک‌ها را می‌توانید بعداً تکمیل کنید.</p>
+</div>
+<div class="grid">
+<article class="card"><div class="iconbox">◉</div><h3>NØRP Bot</h3><p data-fa="پروژهٔ بات برای ارائهٔ قابلیت‌ها و ابزارهای کاربردی در بله. اطلاعات دقیق و لینک بات را بعداً اضافه کنید." data-en="A bot project for useful features and tools on Bale. Add the exact details and bot link later.">پروژهٔ بات برای ارائهٔ قابلیت‌ها و ابزارهای کاربردی در بله. اطلاعات دقیق و لینک بات را بعداً اضافه کنید.</p><span class="tag">Bot</span><span class="tag">Bale</span></article>
+<article class="card"><div class="iconbox">▧</div><h3>Self Project</h3><p data-fa="پروژهٔ نرم‌افزاری تیم؛ توضیحات نهایی و وضعیت انتشار را بعد از آماده‌شدن وارد کنید." data-en="A team software project. Add the final description and release status when ready.">پروژهٔ نرم‌افزاری تیم؛ توضیحات نهایی و وضعیت انتشار را بعد از آماده‌شدن وارد کنید.</p><span class="tag">Development</span></article>
+<article class="card"><div class="iconbox">⌗</div><h3>NØRP Web</h3><p data-fa="همین وب‌سایت؛ صفحه‌ای برای معرفی تیم، پروژه‌ها و راه‌های ارتباطی." data-en="This website—a home for the team, projects, and contact links.">همین وب‌سایت؛ صفحه‌ای برای معرفی تیم، پروژه‌ها و راه‌های ارتباطی.</p><span class="tag">Web</span><span class="tag">HTML / CSS</span></article>
+</div>
+</div>
+</section>
+
+<section id="contact">
+<div class="wrap">
+<div class="band">
+<div>
+<span class="kicker" data-fa="04 / ارتباط" data-en="04 / CONTACT">04 / ارتباط</span>
+<h2 data-fa="با NØRP در ارتباط باش" data-en="Connect with NØRP">با NØRP در ارتباط باش</h2>
+<p data-fa="برای همکاری، پرسش یا دنبال‌کردن خبرهای تیم از راه ارتباطی رسمی استفاده کن." data-en="For collaboration, questions, or team updates, use our official channel.">برای همکاری، پرسش یا دنبال‌کردن خبرهای تیم از راه ارتباطی رسمی استفاده کن.</p>
+</div>
+<a class="btn primary" href="https://github.com/norpteam/norp-team" target="_blank" rel="noopener noreferrer" data-fa="مخزن گیت‌هاب ↗" data-en="GitHub repository ↗">مخزن گیت‌هاب ↗</a>
+</div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="wrap foot">
+<span><strong>NØRP_TEAM</strong> — <span data-fa="با کد و همکاری ساخته شده" data-en="Built with code and teamwork">با کد و همکاری ساخته شده</span></span>
+<span>© <span id="year"></span> NØRP Team</span>
+</div>
+</footer>
+
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-  const modalBackdrop = document.getElementById('modalBackdrop');
-  const modalTitle = document.getElementById('modalTitle');
-  const modalText = document.getElementById('modalText');
-  const details = {
-    site: ['وب‌سایت نورپ تیم', 'این سایت برای معرفی تیم ساخته شده است. پس از انتشار، می‌توانیم اطلاعات اعضا، لینک‌ها و نمونه‌کارهای واقعی را اضافه کنیم.'],
-    bot: ['بات بله', 'اینجا می‌توانیم امکانات بات، تصاویر و لینک رسمی آن را قرار دهیم. هنوز لینک بات تنظیم نشده است.'],
-    tools: ['ابزارهای تیم', 'این بخش برای ابزارهای آینده تیم آماده است. هر پروژه جدید می‌تواند کارت و صفحه جزئیات خودش را داشته باشد.']
-  };
-  function closeModal(){modalBackdrop.classList.remove('open')}
-  document.querySelectorAll('[data-modal]').forEach(button => button.addEventListener('click', () => {
-    const item = details[button.dataset.modal];
-    modalTitle.textContent = item[0]; modalText.textContent = item[1];
-    modalBackdrop.classList.add('open');
-  }));
-  document.getElementById('contactBtn').addEventListener('click', () => {
-    modalTitle.textContent = 'ارتباط با نورپ تیم';
-    modalText.textContent = 'هنوز لینک ارتباطی تنظیم نشده است. برای واقعی شدن این بخش، آدرس کانال، ایمیل عمومی یا لینک شبکه اجتماعی تیم را اضافه می‌کنیم.';
-    modalBackdrop.classList.add('open');
-  });
-  document.getElementById('closeModal').addEventListener('click', closeModal);
-  document.getElementById('modalDone').addEventListener('click', closeModal);
-  modalBackdrop.addEventListener('click', e => { if(e.target === modalBackdrop) closeModal() });
-  document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal() });
+const btn=document.getElementById('langBtn');
+let english=false;
+function setLang(){
+document.documentElement.lang=english?'en':'fa';
+document.documentElement.dir=english?'ltr':'rtl';
+document.body.classList.toggle('english',english);
+document.querySelectorAll('[data-fa][data-en]').forEach(el=>{
+el.innerHTML=english?el.dataset.en:el.dataset.fa;
+});
+btn.textContent=english?'فا / EN':'EN / فا';
+}
+btn.addEventListener('click',()=>{
+english=!english;
+setLang();
+});
+document.getElementById('year').textContent=new Date().getFullYear();
 </script>
 </body>
 </html>
